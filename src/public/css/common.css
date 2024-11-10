@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body,
+textarea,
+input,
+button {
+    color: #4B4B4B;
+    background-color: #fff;
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+input {
+    border: 1px solid #E0DFDE;
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 43px;
+    font-size: 14px;
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: #E0DFDE;
+    background-color: #fff;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* ヘッダー */
+.header {
+    height: 5%;
+    margin: 0;
+}
+
+.header__logo {
+    font-size: 32px;
+    font-style:italic;
+    color: #F5C800;
+    font-family: serif;
+    margin: 0;
+    height: 100%;
+    margin-left: 20px;
+    font-weight: lighter;
+}
+
+.content {
+    background-color: #F8F8F8;
+    display: grid;
+    height: 100%;
+    margin: 0;
+}
+
+.content__heading {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+/* ボタン */
+.btn {
+    display: block;
+    padding: 8px 32px;
+    border: none;
+    background-color: #F5C800;
+    font-size: 16px;
+    cursor: pointer;
+}
