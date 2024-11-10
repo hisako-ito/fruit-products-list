@@ -23,7 +23,6 @@
                 </div>
                 <div class="sort-form">
                     <h3>価格順で表示</h3>
-                    <>
                 </div>
             </form>
         </div>
