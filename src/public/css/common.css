@@ -9,8 +9,7 @@ body {
 
 body,
 textarea,
-input,
-button {
+input {
     color: #4B4B4B;
     background-color: #fff;
     font-family: "Hiragino Kaku Gothic ProN", sans-serif;
@@ -43,7 +42,7 @@ input::placeholder {
 }
 
 .header__logo {
-    font-size: 32px;
+    font-size: 30px;
     font-style:italic;
     color: #F5C800;
     font-family: serif;
