@@ -15,9 +15,9 @@ class Season extends Model
     {
         return $this->belongsToMany(
             Product::class,
-            'product_seasons',
+            'product_season',
             'product_id',
             'season_id',
-        );
+        )->withTimestamps();
     }
 }

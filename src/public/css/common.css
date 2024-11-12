@@ -15,6 +15,21 @@ input {
     font-family: "Hiragino Kaku Gothic ProN", sans-serif;
 }
 
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: none transparent;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+    box-sizing: content-box;
+}
+
 input {
     border: 1px solid #E0DFDE;
     border-radius: 5px;
@@ -42,12 +57,13 @@ input::placeholder {
 }
 
 .header__logo {
-    font-size: 30px;
-    font-style:italic;
-    color: #F5C800;
     font-family: serif;
-    margin: 0;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 500;
+    color: #F5C800;
     height: 100%;
+    margin: 0;
     margin-left: 20px;
     font-weight: lighter;
 }
@@ -60,8 +76,8 @@ input::placeholder {
 }
 
 .content__heading {
-    font-size: 16px;
-    font-weight: normal;
+    font-size: 32px;
+    font-weight: 600;
 }
 
 /* ボタン */
@@ -72,4 +88,41 @@ input::placeholder {
     background-color: #F5C800;
     font-size: 16px;
     cursor: pointer;
+}
+
+/* ページネーション */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+}
+
+.pagination li:not(.active) {
+    padding: 4px 12px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.pagination li:not(:last-child) {
+    border-right: none;
+}
+
+.pagination a {
+    background-color: #fff;
+    border-radius: 50%;
+    color: #4B4B4B;
+    text-decoration: none;
+}
+
+.pagination__link {
+    text-decoration: none;
+}
+
+.active {
+    padding: 4px 12px;
+    background-color: #F5C800;
+    border-radius: 50%;
+    color: #FFF;
 }
