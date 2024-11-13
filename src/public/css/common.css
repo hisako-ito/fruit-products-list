@@ -19,15 +19,15 @@ select {
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    border-radius: 0;
-    border: 0;
-    margin: 0;
-    padding: 0;
     background: none transparent;
+    background-color: #fff;
+    border: 1px solid #E0DFDE;
+    border-radius: 5px;
     vertical-align: middle;
-    font-size: inherit;
-    color: inherit;
-    box-sizing: content-box;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #E0DFDE;
+    height: 43px;
 }
 
 input {
