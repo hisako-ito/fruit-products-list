@@ -1,16 +1,15 @@
-@extends('layouts.app')
+    @extends('layouts.app')
 
-@section('bootstrap')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-@endsection
+    @section('bootstrap')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    @endsection
 
-@section('css')
-<link rel="stylesheet" href="{{ asset('css/products.css')}}">
-@endsection
+    @section('css')
+    <link rel="stylesheet" href="{{ asset('css/products.css')}}">
+    @endsection
 
-@section('content')
+    @section('content')
     <div class="products-list">
-
         <div class=products-list__heading>
             <h2 class="content__heading">商品一覧</h2>
             <form class="add-form" action="/products/register" method="get">
@@ -42,13 +41,16 @@
         <div class="products-list__content">
             @foreach ($products as $product)
                 <div class="product__card">
-                    <div class="card__img">
-                        <img src="{{$product->image}}" alt="" />
-                    </div>
-                    <div class="card__content">
-                        <p class="card__name">{{$product->name}}</p>
-                        <p class="card__price">{{$product->price}}</p>
-                    </div>
+                    <form action="{{ url('/products/' . $product->id) }}" method="get">
+                    @csrf
+                        <div class="card__img">
+                            <input type="image" src="{{ asset($product->image) }}" alt="商品画像" >
+                        </div>
+                        <div class="card__content">
+                            <p class="card__name">{{$product->name}}</p>
+                            <p class="card__price">{{$product->price}}</p>
+                        </div>
+                    </form>
                 </div>
             @endforeach
         </div>
@@ -58,4 +60,4 @@
         </div>
 
     </div>
-@endsection
+    @endsection

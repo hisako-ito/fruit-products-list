@@ -14,4 +14,16 @@ class ProductController extends Controller
         $products = Product::Paginate(6);
         return view('products', compact('products'));
     }
+
+    public function search(Request $request)
+    {
+        $products = Product::with('season')->keywordSearch($request->keyword)->get();
+        return view('search', compact('products'));
+    }
+
+    public function edit(Product $product)
+    {
+        return view('details', compact('product'));
+    }
+
 }
