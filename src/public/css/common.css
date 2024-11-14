@@ -83,10 +83,12 @@ input::placeholder {
 /* ボタン */
 .btn {
     display: block;
-    padding: 8px 32px;
+    padding: 5px auto;
     border: none;
     background-color: #F5C800;
+    color: #4B4B4B;;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
 }
 

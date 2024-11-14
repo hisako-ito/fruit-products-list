@@ -14,7 +14,7 @@
             <h2 class="content__heading">商品一覧</h2>
             <form class="add-form" action="/products/register" method="get">
             @csrf
-                <input class="add-form__btn" type="submit" value="+ 商品を追加">
+                <input class="add-form__btn btn" type="submit" value="+ 商品を追加">
             </form>
         </div>
 
