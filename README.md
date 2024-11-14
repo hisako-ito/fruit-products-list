@@ -3,7 +3,7 @@
 ## 環境構築
 
 ### Dockerビルド
-1. git clone リンク： [https://github.com/hisako-ito/test-contact-form.git](https://github.com/hisako-ito/test-contact-form.git)
+1. git clone リンク： [https://github.com/hisako-ito/fruit-products-list.git](https://github.com/hisako-ito/fruit-products-list.git)
 2. docker-compose up -d --build
 
 ＊ MySQLはOSによって起動しない場合があるので、それぞれのPCに合わせて、docker-compose.ymlファイルを編集してください。
