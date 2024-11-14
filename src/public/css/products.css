@@ -22,9 +22,6 @@
     background-color: #FFA929;
     width: 140px;
     height: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 .add-form__btn:hover {
@@ -54,7 +51,6 @@
 
 .search-form__search-btn {
     width: 100%;
-    font-weight: bold;
     margin-top: 20px;
 }
 
@@ -75,7 +71,7 @@
 
 .sort-form__select-inner::after {
     position: absolute;
-    top: 65%;
+    top: 50%;
     right: 5%;
     width: 0;
     height: 0;

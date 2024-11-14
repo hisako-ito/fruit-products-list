@@ -1,6 +1,6 @@
 .search-list {
     display: grid;
-    grid-template-rows: 120px 1fr 1fr;
+    grid-template-rows: 120px 1fr 1fr 1fr;
     grid-template-columns: 20% 1fr;
     margin: 0 auto;
     padding-left: 40px;
@@ -62,7 +62,7 @@
 
 .sort-form__select-inner::after {
     position: absolute;
-    top: 65%;
+    top: 50%;
     right: 5%;
     width: 0;
     height: 0;

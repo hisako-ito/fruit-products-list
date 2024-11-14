@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Season;
 use Illuminate\Http\Request;
+use Diglactic\Breadcrumbs\Breadcrumbs;
 
 class ProductController extends Controller
 {
@@ -13,6 +14,11 @@ class ProductController extends Controller
         $products = Product::all();
         $products = Product::Paginate(6);
         return view('products', compact('products'));
+    }
+
+    public function add()
+    {
+        return view('register');
     }
 
     public function search(Request $request)
@@ -26,4 +32,15 @@ class ProductController extends Controller
         return view('details', compact('product'));
     }
 
+    public function update(Request $request)
+    {
+        if ($request->has('back')) {
+            return redirect('/products')->withInput();
+        }
+
+        $form = $request->all();
+        unset($form['_token']);
+        Product::find($request->id)->update($form);
+        return redirect('/products');
+    }
 }
