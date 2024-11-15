@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Season;
 use Illuminate\Http\Request;
-use Diglactic\Breadcrumbs\Breadcrumbs;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -29,18 +29,26 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
+        $product = Product::with('season')->first();
         return view('details', compact('product'));
     }
 
-    public function update(Request $request)
+    public function update(ProductRequest $request)
     {
         if ($request->has('back')) {
-            return redirect('/products')->withInput();
+            return redirect('/products')->withInput();;
         }
 
         $form = $request->all();
         unset($form['_token']);
         Product::find($request->id)->update($form);
+        return redirect('/products');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
         return redirect('/products');
     }
 }
