@@ -20,10 +20,6 @@
     margin: 10px;
 }
 
-.product-details__nav-list a {
-    text-decoration: none;
-}
-
 .update-form {
     display: grid;
     grid-template-rows: 1fr 200px 1fr;
@@ -95,13 +91,12 @@
 
 .update-form__season-items-input label {
     margin-right: 40px;
-    height: 100%;
 }
 
 input[type="checkbox"] {
     appearance: none;
-    height: 24px;
-    width: 24px;
+    height: 20px;
+    width: 20px;
     border: 1px solid #4B4B4B;
     border-radius: 50%;
 }
@@ -115,8 +110,8 @@ input[type="checkbox"]::before {
     content: "";
     display: block;
     position: relative;
-    left: 9px;
-    top: 5px;
+    left: 7.5px;
+    top: 3px;
     width: 5px;
     height: 10px;
     border: 1px solid #fff;
@@ -148,13 +143,13 @@ input[type="checkbox"]:focus-visible {
     margin-top: 60px;
 }
 
+.update-form__send-btn,
 .update-form__back-btn {
-    background-color: #E0DFDE;
     width: 200px;
 }
 
-.update-form__send-btn {
-    width: 200px;
+.update-form__back-btn {
+    background-color: #E0DFDE;
 }
 
 .delete-form {
