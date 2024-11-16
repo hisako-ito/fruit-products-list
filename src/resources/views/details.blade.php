@@ -76,7 +76,8 @@
                 </div>
                 <div class="forms__btn">
                     <div class="update-form__btn-inner">
-                        <input class="update-form__back-btn btn" type="submit" value="戻る" name="back">
+                        <a href="/products" ><button class="update-form__back-btn btn" type="button">戻る</button></a>
+                        <input type="hidden" name="update" value="">
                         <input class="update-form__send-btn btn" type="submit" value="変更を保存" name="send">
                     </div>
             </form>

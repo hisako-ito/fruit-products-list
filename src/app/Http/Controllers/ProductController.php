@@ -21,6 +21,15 @@ class ProductController extends Controller
         return view('register');
     }
 
+    public function create(ProductRequest $request)
+    {
+        $filePath = $request->file('image')->store('img', 'public');
+
+        $form = $request->all();
+        Product::create($form);
+        return redirect('/products');
+    }
+
     public function search(Request $request)
     {
         $products = Product::with('season')->keywordSearch($request->keyword)->get();
@@ -29,14 +38,13 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $product = Product::with('season')->first();
         return view('details', compact('product'));
     }
 
     public function update(ProductRequest $request)
     {
         if ($request->has('back')) {
-            return redirect('/products')->withInput();;
+            return redirect('/products')->withInput();
         }
 
         $form = $request->all();

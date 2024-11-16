@@ -39,6 +39,10 @@ button {
     appearance: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 textarea {
     border: 1px solid #E0DFDE;
     border-radius: 5px;
@@ -53,6 +57,7 @@ input {
     border: 1px solid #E0DFDE;
     border-radius: 5px;
     padding: 0 10px;
+    margin: 0;
     height: 43px;
     font-size: 14px;
 }
@@ -102,10 +107,12 @@ input::placeholder {
 /* ボタン */
 .btn {
     display: block;
+    height: 50px;
     padding: 5px auto;
+    border-radius: 5px;
     border: none;
     background-color: #F5C800;
-    color: #4B4B4B;;
+    color: #4B4B4B;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;

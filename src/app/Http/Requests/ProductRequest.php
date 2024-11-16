@@ -23,10 +23,11 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
+        $isUpdate = $this->has('update');
         return [
             'name' => 'required',
             'price' => 'required|integer|digits_between:0,10000',
-            'image' => 'file|mimes:png,jpeg',
+            'image' => $isUpdate ? 'nullable|mimes:png,jpeg' : 'required|mimes:png,jpeg',
             'season_id' => 'required',
             'description' => 'required|max:120'
         ];
@@ -39,7 +40,7 @@ class ProductRequest extends FormRequest
         'price.required' => '値段を入力してください',
         'price.integer' => '数値で入力してください',
         'price.digits_between' => '0~10000円以内で入力してください',
-        'image.file' => '商品画像を登録してください',
+        'image.required' => '商品画像を登録してください',
         'image.mimes' => '「.png」または「.jpeg」形式でアップロードしてください',
         'season_id.required' => '季節を選択してください',
         'description.required' => '商品説明を入力してください',
