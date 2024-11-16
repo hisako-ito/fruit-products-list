@@ -21,7 +21,8 @@
 * Laravel 8.83.8
 * MySQL 15.1
 
-## ER図![fruit-products-list](https://github.com/user-attachments/assets/11fdcb28-8f75-4828-8e52-6e8164a9424a)
+## ER図
+![fruit-products-list](https://github.com/user-attachments/assets/11fdcb28-8f75-4828-8e52-6e8164a9424a)
 
 
 ## URL
