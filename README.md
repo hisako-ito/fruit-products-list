@@ -53,5 +53,5 @@ php artisan migrate
 
 
 ## URL
-* 開発環境： [http://localhost//products](http://localhost//products)
+* 開発環境： [http://localhost/products](http://localhost/products)
 * phpMyAdmin： [http://localhost:8080/](http://localhost:8080/)
