@@ -36,7 +36,7 @@
                         <form action="{{ url('/products/' . $product->id) }}" method="get">
                         @csrf
                             <div class="card__img">
-                                <input type="image" src="{{ asset($product->image) }}" alt="商品画像" >
+                                <input type="image" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" >
                             </div>
                             <div class="card__content">
                                 <p class="card__name">{{$product->name}}</p>

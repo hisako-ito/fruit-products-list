@@ -19,7 +19,7 @@
                 @method('PATCH')
                 @csrf
                 <div class="update-form__item-img">
-                    <img src="{{ asset($product->image) }}" alt="商品画像">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
                     <input class="update-form__item-input" type="file" name="image">
                     <p class="update-form__error-message">
                         @error('image')
@@ -49,17 +49,12 @@
                     <div class="update-form__item update-form__season-item">
                         <label class="update-form__item-label" for="春">季節</label>
                         <div class="update-form__season-items-input">
-                            <label><input class="update-form__item-input" type="checkbox" name="season_id" value="1">
-                            春</label>
-                            <label><input class="update-form__item-input" type="checkbox" name="season_id" value="2">
-                            夏</label>
-                            <label><input class="update-form__item-input" type="checkbox" name="season_id" value="3">
-                            秋</label>
-                            <label><input class="update-form__item-input" type="checkbox" name="season_id" value="4">
-                            冬</label>
+                            @foreach($seasons as $season)
+                                <input type="checkbox" name="seasons[]" value="{{ $season->id }}" {{ $product->seasons->contains('id', $season->id) ? 'checked' : '' }}> {{ $season->name }} </label>
+                            @endforeach
                         </div>
                         <p class="update-form__error-message">
-                            @error('season_id')
+                            @error('seasons')
                             {{ $message }}
                             @enderror
                         </p>

@@ -26,9 +26,9 @@ class ProductRequest extends FormRequest
         $isUpdate = $this->has('update');
         return [
             'name' => 'required',
-            'price' => 'required|integer|digits_between:0,10000',
-            'image' => $isUpdate ? 'nullable|mimes:png,jpeg' : 'required|mimes:png,jpeg',
-            'season_id' => 'required',
+            'price' => 'required|integer|min:0|max:10000',
+            'image' => $isUpdate ? 'nullable|mimes:jpg,jpeg,png' : 'required|mimes:jpg,jpeg,png',
+            'seasons' => 'required|array',
             'description' => 'required|max:120'
         ];
     }
@@ -39,10 +39,11 @@ class ProductRequest extends FormRequest
         'name.required' => '商品名を入力してください',
         'price.required' => '値段を入力してください',
         'price.integer' => '数値で入力してください',
-        'price.digits_between' => '0~10000円以内で入力してください',
+        'price.min' => '0~10000円以内で入力してください',
+        'price.max' => '0~10000円以内で入力してください',
         'image.required' => '商品画像を登録してください',
         'image.mimes' => '「.png」または「.jpeg」形式でアップロードしてください',
-        'season_id.required' => '季節を選択してください',
+        'seasons.required' => '季節を選択してください',
         'description.required' => '商品説明を入力してください',
         'description.max' => 'お問い合わせ内容は120文字以内で入力してください',
         ];

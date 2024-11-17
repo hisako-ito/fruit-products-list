@@ -40,22 +40,13 @@
                 </div>
                 <div class="register-form__item">
                     <label class="register-form__item-label" for="春">季節<span class="register-form__item-label-required">必須</span><span class="register-form__item-label-checkbox-guide">複数選択可</span></label>
-                    <div class="register-form__season-items-input">
-                        <label><input class="register-form__item-input" type="checkbox" name="season_id" value="1" {{
-                old('season_id')==1 ? 'checked' : '' }}>
-                                    春</label>
-                        <label><input class="register-form__item-input" type="checkbox" name="season_id" value="2" {{
-                old('season_id')==2 ? 'checked' : '' }}>
-                                    夏</label>
-                        <label><input class="register-form__item-input" type="checkbox" name="season_id" value="3" {{
-                old('season_id')==3 ? 'checked' : '' }}>
-                                    秋</label>
-                        <label><input class="register-form__item-input" type="checkbox" name="season_id" value="4" {{
-                old('season_id')==4 ? 'checked' : '' }}>
-                                    冬</label>
+                    <div class="register-form__season-items">
+                        @foreach($seasons as $season)
+                        <input class="register-form__season-items-input" type="checkbox" name="seasons[]" value="{{ $season->id }}" {{ in_array($season->id, old('seasons', [])) ? 'checked' : '' }}> {{ $season->name }}
+                        @endforeach
                     </div>
                     <p class="register-form__error-message">
-                        @error('season_id')
+                        @error('seasons')
                         {{ $message }}
                         @enderror
                     </p>
