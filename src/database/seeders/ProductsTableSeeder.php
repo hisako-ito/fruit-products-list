@@ -84,7 +84,7 @@ class ProductsTableSeeder extends Seeder
                 'image' => 'img/melon.png',
                 'description' => '香りがよくジューシーで品のある甘さが人気のメロンスムージー。カリウムが多く含まれているためむくみ解消効果も抜群です。もぎたてフルーツのスムージーをお召し上がりください！',
                 'seasons' => [1, 2]
-            ]
+            ],
         ];
 
         foreach ($products as $productData) {
