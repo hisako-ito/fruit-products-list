@@ -6,50 +6,76 @@ use App\Models\Product;
 use App\Models\Season;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
         $products = Product::Paginate(6);
         return view('products', compact('products'));
     }
 
     public function add()
     {
-        return view('register');
+        $seasons = Season::all();
+        return view('register', compact('seasons'));
     }
 
     public function create(ProductRequest $request)
     {
-        $filePath = $request->file('image')->store('img', 'public');
+        $seasons = Season::all();
 
-        $form = $request->all();
-        Product::create($form);
+        $fileName = Str::slug($request->name) . '.' . $request->file('image')->getClientOriginalExtension();
+
+        $filePath = $request->file('image')->storeAs('img', $fileName, 'public');
+
+        $form = [
+            'name' => $request->name,
+            'price' => $request->price,
+            'image' => $filePath,
+            'description' => $request->description,
+        ];
+
+        $product = Product::create($form);
+        $product->seasons()->attach($request->seasons);
+
         return redirect('/products');
     }
 
     public function search(Request $request)
     {
-        $products = Product::with('season')->keywordSearch($request->keyword)->get();
+        $products = Product::with('seasons')->keywordSearch($request->keyword)->get();
         return view('search', compact('products'));
     }
 
     public function edit(Product $product)
     {
-        return view('details', compact('product'));
+        $seasons = Season::all();
+        $products = Product::all();
+        return view('details', compact('product', 'seasons'));
     }
 
-    public function update(ProductRequest $request)
+    public function update(ProductRequest $request, Product $product)
     {
-        if ($request->has('back')) {
-            return redirect('/products')->withInput();
+        if ($request->hasFile('image')) {
+            $filePath = $request->file('image')->store('img', 'public');
+            $product->image = $filePath;
         }
 
-        $form = $request->all();
-        unset($form['_token']);
-        Product::find($request->id)->update($form);
+        $form = [
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'description' => $request->input('description'),
+        ];
+
+        $product->fill($form)->save();
+
+        if ($request->has('seasons')) {
+            $product->seasons()->sync($request->input('seasons'));
+        }
+
         return redirect('/products');
     }
 
